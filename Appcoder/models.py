@@ -4,7 +4,7 @@ from django.db import models
 class Excursion(models.Model):
     nombre = models.CharField(max_length=50)
     email = models.EmailField()
-    
+    def trabajos
     
 class Participantes(models.Model):
     nombre = models.CharField(max_length=50)
