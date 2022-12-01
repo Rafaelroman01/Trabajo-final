@@ -6,5 +6,11 @@ class RecreadorFormulario(forms.Form):
     edad = forms.IntegerField()
     nacimiento = forms.DateField()
     
+class ParticipanteFormulario(forms.Form):
+    
+    nombre = forms.CharField(max_length=50)
+    edad = forms.IntegerField()
+    nacimiento = forms.DateField()
+    
    
     

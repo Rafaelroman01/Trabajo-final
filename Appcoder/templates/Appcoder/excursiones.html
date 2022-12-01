@@ -4,4 +4,18 @@
 {% block contenido %}
 <h1>Excursiones Disponibles</h1>
 <p>Estas son las excursiones disponibles</p>
+
+{% if listado_excursiones %}
+    <ul>
+    
+    {% for excursion in listado_excursiones %}
+        <li>{{excursion}}</li>
+
+    {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No hay excursiones disponibles en estos momentos</p>
+
+{% endif %}
 {% endblock %}

@@ -1,8 +1,12 @@
 from django.http import HttpResponse 
 from django.shortcuts import render
-from Appcoder.models import Excursion, Recreadores
+from Appcoder.models import Excursion, Participantes, Recreadores, Documentacion
 from Appcoder.forms import RecreadorFormulario
-from Appcoder.models import *
+
+
+# Dependencias para resolver apertura de archivos usando rutas relativas
+from viajeescolar.settings import BASE_DIR
+import os
 
 
 # Create your views here.
@@ -11,18 +15,21 @@ def inicio(request):
 
 
 def excursiones(request):
-    return render(request, "Appcoder/excursiones.html")
+    excursiones=Excursion.objects.all() 
+    contexto = {"listado_excursiones": excursiones}
+    return render(request, "Appcoder/excursiones.html", contexto)
 
-def creacion_excursion(request):
+# def creacion_excursion(request):
     
-    if request.method == "POST":
-        nombre_excursion = request.POST["nombre"]
-        datos_email = request.POST["email"] 
+    # if request.method == "POST":
+        # nombre_excursion = request.POST["nombre"]
+        # datos_email = request.POST["email"] 
         
-        excursion = Excursion(nombre=nombre_excursion, email=datos_email)
-        excursion.save()
+        # excursion = Excursion(nombre=nombre_excursion, email=datos_email)
+        # excursion.save()
     
-    return render(request, "Appcoder/excursion_formulario.html")
+    # return render(request, "Appcoder/excursion_formulario.html")
+
 
 def participantes(request):
     return render(request, "Appcoder/participantes.html") 

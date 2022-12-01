@@ -6,7 +6,7 @@ class Excursion(models.Model):
     email = models.EmailField()
     
     def __str__(self):
-        return f"Excursion: {self.nombre} | Email: {self.camada}"
+        return f"Excursion: {self.nombre} | Email: {self.email}"
     
 class Participantes(models.Model):
     nombre = models.CharField(max_length=50)
@@ -14,7 +14,7 @@ class Participantes(models.Model):
     nacimiento = models.DateField()
     
     def __str__(self):
-        return f"{self.apellido.upper()}, {self.nombre.capitalize()}"
+        return f"{self.nombre.upper()}, {self.nacimiento}"
     
 class Recreadores(models.Model):
     nombre = models.CharField(max_length=50)
@@ -22,7 +22,7 @@ class Recreadores(models.Model):
     nacimiento = models.DateField()
     
     def __str__(self):
-        return f"{self.apellido.upper()}, {self.nombre.capitalize()} [{self.profesion.title()}]"
+        return f"{self.nombre.upper()}, {self.nacimiento}"
     
     
 class Documentacion(models.Model):
